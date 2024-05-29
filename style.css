@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000; /* Noir en arrière-plan */
+    overflow: hidden;
+}
+
+header {
+    background: #000; /* Couleur de fond noire */
+    color: white;
+    padding: 10px 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons .btn {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.auth-buttons .signin {
+    background: #333; /* Bouton Sign in en gris foncé */
+}
+
+.auth-buttons .signup {
+    background: linear-gradient(90deg, #00b3ff, #006aff); /* Bouton Sign up en dégradé bleu */
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at right, #003b57, #000);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+header {
+    background: #000; /* Couleur de fond noire */
+    color: white;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons .btn {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.auth-buttons .signin {
+    background: #333; /* Bouton Sign in en gris foncé */
+}
+
+.auth-buttons .signup {
+    background: linear-gradient(90deg, #00b3ff, #006aff); /* Bouton Sign up en dégradé bleu */
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.welcome-section {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.welcome-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    background: #111;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.social-icon:hover {
+    background: #333;
+}
+
+.social-icon.instagram::before {
+    content: '📸';
+    margin-right: 8px;
+}
+
+.social-icon.youtube::before {
+    content: '▶️';
+    margin-right: 8px;
+}
+
+.social-icon.twitter::before {
+    content: '🐦';
+    margin-right: 8px;
+}

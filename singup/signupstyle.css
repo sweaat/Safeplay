@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-position: bottom left;
-    background: linear-gradient(90deg, rgba(204,151,244,1) 0%, rgba(114,43,255,1) 35%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(90deg, #3DC85C 0%, #2FA16D 35%, rgba(0,0,0,1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,12 +64,14 @@ body {
 }
 
 .login-form input[type="text"],
+.login-form input[type="email"],
 .login-form input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: none;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .remember-me {
@@ -101,18 +103,6 @@ body {
     color: #6200ea;
     display: block;
     margin: 10px 0;
-}
-
-.social-login {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.social-login img {
-    width: 30px;
-    height: 30px;
 }
 
 .footer-links {

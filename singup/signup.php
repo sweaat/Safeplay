@@ -3,9 +3,9 @@ session_start();
 
 // Configuration de la base de données
 $host = 'localhost';
-$db = 'projet'; // Remplacez par le nom de votre base de données
-$user = 'root';    // Remplacez par votre nom d'utilisateur de la base de données
-$password = '';// Remplacez par votre mot de passe de la base de données
+$db = 'projet'; 
+$user = 'root';  
+$password = '';
 
 // Connexion à la base de données
 try {
@@ -19,49 +19,22 @@ try {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    $profile_picture = $_FILES['profile_picture'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    // Hachage du mot de passe
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    // Vérifier et traiter l'image téléchargée
-    $target_dir = "uploads/"; // Répertoire où les images seront sauvegardées
-    $target_file = $target_dir . basename($profile_picture["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    // Vérifier la taille du fichier
-    if ($profile_picture["size"] > 500000) { // Limite de taille de 500KB
-        $error = "Désolé, votre fichier est trop volumineux.";
-        $uploadOk = 0;
-    }
-
-    // Autoriser certains formats de fichiers
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-        $error = "Désolé, seuls les fichiers JPG, JPEG, PNG et GIF sont autorisés.";
-        $uploadOk = 0;
-    }
-
-    // Vérifier si $uploadOk est défini à 0 par une erreur
-    if ($uploadOk == 0) {
-        $error = "Désolé, votre fichier n'a pas été téléchargé.";
-    // Si tout est correct, essayer de télécharger le fichier
+    // Vérification si l'utilisateur existe déjà
+    $stmt = $pdo->prepare('SELECT * FROM Users WHERE Email = :email');
+    $stmt->execute(['email' => $email]);
+    if ($stmt->rowCount() > 0) {
+        $error = "L'email est déjà utilisé.";
     } else {
-        if (move_uploaded_file($profile_picture["tmp_name"], $target_file)) {
-            // Insertion de l'utilisateur dans la base de données
-            try {
-                $stmt = $pdo->prepare('INSERT INTO Users (Username, Email, Password, Role, Profile_Picture) VALUES (?, ?, ?, ?, ?)');
-                $stmt->execute([$username, $email, $hashedPassword, 'User', $target_file]);
-
-                // Redirection après inscription réussie
-                header('Location: login.php'); // Redirige vers la page de connexion
-                exit();
-            } catch (PDOException $e) {
-                $error = "Erreur lors de la création de l'utilisateur: " . $e->getMessage();
-            }
+        // Insertion du nouvel utilisateur avec rôle par défaut 'User'
+        $stmt = $pdo->prepare('INSERT INTO Users (Username, Email, Password, Role) VALUES (:username, :email, :password, "User")');
+        if ($stmt->execute(['username' => $username, 'email' => $email, 'password' => $password])) {
+            $success = "Compte créé avec succès ! Nous allons maintenant vous redirigez vers la page de connection.";
+            sleep(4);
+            header('Location: ../login/login.php');
         } else {
-            $error = "Désolé, une erreur est survenue lors du téléchargement de votre fichier.";
+            $error = "Erreur lors de la création du compte.";
         }
     }
 }
@@ -72,40 +45,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Page</title>
+    <title>Signup Page</title>
     <link rel="stylesheet" href="signupstyle.css">
 </head>
 <body>
     <div class="container">
         <div class="welcome-section">
-            <h1>Créer votre compte</h1>
-            <p>Veuillez entrer vos identifiants et choisir votre mot de passe<br></p>
+            <h1>Bienvenue Sur Notre Plateforme</h1>
+            <p>Veuillez remplir les informations ci-dessous pour créer votre compte.<br>
+            Si vous avez déjà un compte, vous pouvez vous connecter <a href="login.php">ici</a>.</p>
         </div>
-        <div class="signup-section">
-            <form class="signup-form" method="POST" action="signup.php" enctype="multipart/form-data">
-                <h2>Sign Up</h2>
-                <p>Welcome</p>
+        <div class="login-section">
+            <form class="login-form" method="POST" action="signup.php">
+                <h2>Créer un compte</h2>
+                <p>Rejoignez-nous dès aujourd'hui!</p>
                 <?php if (isset($error)): ?>
                     <p style="color: red;"><?php echo $error; ?></p>
+                <?php elseif (isset($success)): ?>
+                    <p style="color: green;"><?php echo $success; ?></p>
                 <?php endif; ?>
-                <label for="username">Username</label>
+                <label for="username">Nom d'utilisateur</label>
                 <input type="text" id="username" name="username" required>
                 
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
                 
-                <label for="password">Password</label>
+                <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password" required>
-
-                <label for="profile_picture">Profile Picture</label>
-                <input type="file" id="profile_picture" name="profile_picture" required>
                 
-                <button type="submit">Sign Up</button>
-                <p>Already have an account? <a href="login.php">Login</a></p>
+                <button type="submit">Créer un compte</button>
+                <p>Vous avez déjà un compte? <a href="login.php">Connectez-vous</a></p>
                 <div class="footer-links">
-                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Conditions générales</a>
                     <a href="#">Support</a>
-                    <a href="#">Customer Care</a>
+                    <a href="#">Service client</a>
                 </div>
             </form>
         </div>

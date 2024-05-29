@@ -29,10 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($password, $user['Password'])) {
         $_SESSION['user_id'] = $user['User_ID'];
         $_SESSION['username'] = $user['Username'];
-        $_SESSION['role'] = $user['Role'];
 
         // Redirection après connexion réussie
-        header('Location: index.html'); // Remplacez par la page de destination après connexion
+        header('Location: ../index.php'); // Remplacez par la page de destination après connexion
         exit();
     } else {
         $error = "Nom d'utilisateur ou mot de passe incorrect.";
