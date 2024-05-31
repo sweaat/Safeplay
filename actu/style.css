@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at right, #003b57, #000);
+    color: white;
+    text-align: center;
+    overflow-x: hidden; /* Désactiver le défilement vertical */
+    height: 100vh;
+}
+
+header {
+    background: #000; /* Couleur de fond noire */
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons .btn {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.auth-buttons .signin {
+    background: #333; /* Bouton Sign in en gris foncé */
+}
+
+.auth-buttons .signup {
+    background: linear-gradient(90deg, #00b3ff, #006aff); /* Bouton Sign up en dégradé bleu */
+}
+
+main {
+    padding-top: 70px; /* Pour éviter le chevauchement avec le header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-top: 100px; /* Ajoutez une marge supérieure pour abaisser les cases */
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Fixez à trois colonnes */
+    grid-template-rows: repeat(2, 1fr); /* Fixez à deux lignes */
+    gap: 20px;
+    max-width: 80%; /* Prenez tout l'espace horizontal disponible */
+    padding: 20px;
+    overflow: hidden; /* Désactivez le défilement */
+}
+
+.news-item {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    width: 300px; /* Fixez la largeur des éléments */
+    height: 400px; /* Fixez la hauteur des éléments */
+}

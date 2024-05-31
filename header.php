@@ -15,7 +15,7 @@
             <nav>
                 <ul>
                     <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Actualités</a></li>
+                    <li><a href="actu/actu.php">Decouvrir un jeux</a></li>
                     <li><a href="#">Forums</a></li>
                     <li><a href="#">Messagerie</a></li>
                     <li><a href="#">Support</a></li>

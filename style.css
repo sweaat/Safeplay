@@ -3,70 +3,6 @@ body {
     font-family: Arial, sans-serif;
     background: #000; /* Noir en arrière-plan */
     overflow: hidden;
-}
-
-header {
-    background: #000; /* Couleur de fond noire */
-    color: white;
-    padding: 10px 20px;
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo a {
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-}
-
-.auth-buttons {
-    display: flex;
-}
-
-.auth-buttons .btn {
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-left: 10px;
-    font-size: 1rem;
-}
-
-.auth-buttons .signin {
-    background: #333; /* Bouton Sign in en gris foncé */
-}
-
-.auth-buttons .signup {
-    background: linear-gradient(90deg, #00b3ff, #006aff); /* Bouton Sign up en dégradé bleu */
-}
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at right, #003b57, #000);
     color: white;
     text-align: center;
     display: flex;
@@ -142,9 +78,27 @@ main {
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    position: relative;
+}
+
+.image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.background-image {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.4;
 }
 
 .welcome-section {
+    position: relative;
+    z-index: 1;
+    text-align: center;
     max-width: 800px;
     padding: 20px;
 }
