@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <div class="container">
     <div class="welcome-section">
-        <h1>BIENVENUE <br> SUR NOTRE <br> PLATRROM</h1>
+        <h1>BIENVENUE <br> SUR NOTRE <br> PLATFORM</h1>
         <p>Veuillez entrer vos identifiants <br> pour accéder à votre compte.<br>
             Si vous n'avez pas encore de compte, <br> vous pouvez vous inscrire ici.</p>
     </div>

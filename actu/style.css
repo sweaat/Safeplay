@@ -106,10 +106,13 @@ main {
 }
 
 .news-item {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 20px;
     text-align: left;
     width: 300px; /* Fixez la largeur des éléments */
     height: 400px; /* Fixez la hauteur des éléments */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Ajout de l'ombre */
+
 }
