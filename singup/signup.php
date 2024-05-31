@@ -3,8 +3,8 @@ session_start();
 
 // Configuration de la base de données
 $host = 'localhost';
-$db = 'projet'; 
-$user = 'root';  
+$db = 'projet';
+$user = 'root';
 $password = '';
 
 // Connexion à la base de données
@@ -43,45 +43,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup Page</title>
     <link rel="stylesheet" href="signupstyle.css">
 </head>
 <body>
-    <div class="container">
-        <div class="welcome-section">
-            <h1>Bienvenue Sur Notre Plateforme</h1>
-            <p>Veuillez remplir les informations ci-dessous pour créer votre compte.<br>
-            Si vous avez déjà un compte, vous pouvez vous connecter <a href="login.php">ici</a>.</p>
-        </div>
-        <div class="login-section">
-            <form class="login-form" method="POST" action="signup.php">
-                <h2>Créer un compte</h2>
-                <p>Rejoignez-nous dès aujourd'hui!</p>
-                <?php if (isset($error)): ?>
-                    <p style="color: red;"><?php echo $error; ?></p>
-                <?php elseif (isset($success)): ?>
-                    <p style="color: green;"><?php echo $success; ?></p>
-                <?php endif; ?>
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="username" required>
-                
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" required>
-                
-                <button type="submit">Créer un compte</button>
-                <p>Vous avez déjà un compte? <a href="login.php">Connectez-vous</a></p>
-                <div class="footer-links">
-                    <a href="#">Conditions générales</a>
-                    <a href="#">Support</a>
-                    <a href="#">Service client</a>
-                </div>
-            </form>
-        </div>
+<div class="container">
+    <div class="welcome-section">
+        <h1>BIENVENUE <br> SUR NOTRE <br> PLATFORM</h1>
+        <p>Veuillez remplir les informations <br> ci-dessous pour créer votre compte.<br>
+            Si vous avez déjà un compte, <br> vous pouvez vous connecter <a href="login.php">ici</a>.</p>
     </div>
+    <div class="singup-section">
+        <form class="singup-form" method="POST" action="signup.php">
+            <h2>Créer un compte</h2>
+            <p>Rejoignez-nous dès aujourd'hui!</p>
+            <?php if (isset($error)): ?>
+                <p style="color: red;"><?php echo $error; ?></p>
+            <?php elseif (isset($success)): ?>
+                <p style="color: green;"><?php echo $success; ?></p>
+            <?php endif; ?>
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Créer un compte</button>
+            <p>Vous avez déjà un compte? <a href="login.php">Connectez-vous</a></p>
+            <div class="footer-links">
+                <a href="#">Conditions générales</a>
+                <a href="#">Support</a>
+                <a href="#">Service client</a>
+            </div>
+        </form>
+        <img src="../img/earth.png" class="signup-earth-image">
+    </div>
+</div>
 </body>
 </html>

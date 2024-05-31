@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
     color: white;
+    overflow: hidden;
 }
 
 .container {
@@ -15,17 +16,24 @@ body {
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 .welcome-section {
     flex: 1;
     text-align: left;
     padding: 20px;
+    position: absolute;
+    left: -100px;
 }
 
 .welcome-section h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 4.5rem;
+    margin-bottom: 0;
+    line-height: 1.1;
 }
 
 .welcome-section p {
@@ -42,12 +50,15 @@ body {
 }
 
 .login-form {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .login-form h2 {
@@ -103,18 +114,6 @@ body {
     margin: 10px 0;
 }
 
-.social-login {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.social-login img {
-    width: 30px;
-    height: 30px;
-}
-
 .footer-links {
     display: flex;
     justify-content: center;
@@ -124,4 +123,77 @@ body {
 
 .footer-links a {
     color: #6200ea;
+}
+
+.skull-image {
+    position: absolute;
+    right: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 700px;
+    height: auto;
+    z-index: 0;
+}
+
+@media (max-width: 1024px) {
+    .skull-image {
+        right: -100px;
+        width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome-section {
+        position: relative;
+        text-align: center;
+        left: 0;
+        margin-bottom: 20px;
+    }
+
+    .welcome-section h1 {
+        font-size: 3rem;
+    }
+
+    .welcome-section p {
+        font-size: 1rem;
+    }
+
+    .login-section {
+        position: relative;
+    }
+
+    .login-form {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .skull-image {
+        right: -50px;
+        width: 300px;
+        top: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome-section p {
+        font-size: 0.9rem;
+    }
+
+    .login-form {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .skull-image {
+        display: none; /* Hide the skull image on very small screens */
+    }
 }
