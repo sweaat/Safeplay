@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background: linear-gradient(90deg, #CC97F4 0%, #722BFF 50%, #000 100%);
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+header {
+    font-family: 'Oswald', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: 700;
+    position: absolute;
+    left: 500px;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    left: 600px;
+
+}
+
+header nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ddd;
+}
+
+main {
+    padding-top: 80px; /* Ensure main content is not hidden behind the header */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.messaging-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: calc(100vh - 80px);
+}
+
+section.conversations {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    overflow-y: auto;
+}
+
+section.conversations h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+section.conversations ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+section.conversations li {
+    margin-bottom: 10px;
+}
+
+section.conversations a {
+    text-decoration: none;
+    color: #CC97F4;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+section.conversations a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+section.chat {
+    flex: 3;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 10px 10px 0;
+}
+
+.chat-header, .chat-messages {
+    padding: 20px;
+}
+
+.chat-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.chat-header form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.chat-header select, .chat-header textarea {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Style pour les boutons dans l'en-tête de la conversation */
+.chat-header button {
+    padding: 10px 20px;
+    background: #4CAF50; /* Couleur de fond pour les boutons */
+    color: white; /* Couleur du texte des boutons */
+    border: none; /* Supprime les bordures */
+    border-radius: 5px; /* Arrondi les coins */
+    margin-right: 10px; /* Marge à droite pour séparer les boutons */
+    cursor: pointer; /* Curseur de type main pour indiquer que le bouton est cliquable */
+}
+
+/* Style pour les boutons au survol */
+.chat-header button:hover {
+    background: #45a049; /* Changement de couleur de fond au survol */
+}
+
+/* Style pour les boutons au clic */
+.chat-header button:active {
+    background: #3e8e41; /* Changement de couleur de fond au clic */
+}
+
+/* Style pour la zone de conversation */
+.chat-container {
+    background-color: #f4f4f8;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Style pour les messages */
+.message {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Style pour les messages de l'utilisateur */
+.user-message {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+}
+
+/* Style pour les messages de l'assistant */
+.assistant-message {
+    background-color: #c7d8f4;
+    align-self: flex-start;
+}
+
+/* Style pour le texte dans les messages */
+.message-content {
+    color: #333333;
+    font-size: 16px;
+}
+
+/* Style pour l'heure dans les messages */
+.message-time {
+    color: #666666;
+    font-size: 12px;
+}

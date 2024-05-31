@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Si vous avez déjà un compte, <br> vous pouvez vous connecter <a href="login.php">ici</a>.</p>
     </div>
     <div class="singup-section">
-        <form class="singup-form" method="POST" action="signup.php">
+        <form class="singup-form" method="POST" action="singnup.php">
             <h2>Créer un compte</h2>
             <p>Rejoignez-nous dès aujourd'hui!</p>
             <?php if (isset($error)): ?>

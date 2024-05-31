@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <button type="submit">Login</button>
             <a href="#">Forgot password?</a>
-            <p>Don't have an account? <a href="../singup/signup.php">Signup</a></p>
+            <p>Don't have an account? <a href="../signup/signup.php">Signup</a></p>
             <div class="footer-links">
                 <a href="#">Terms & Conditions</a>
                 <a href="#">Support</a>
