@@ -43,6 +43,7 @@ $username = $is_logged_in ? $_SESSION['username'] : '';
                 </ul>
             </nav>
             <div class="auth-buttons">
+<<<<<<< HEAD
                 <?php if ($is_logged_in): ?>
                     <a href="http://localhost/projet/profile/edit_profile.php" class="username"><?php echo 'bienvenue ',htmlspecialchars($username); ?></a>
                     <a href="?action=logout" class="btn logout">Logout</a>
@@ -50,6 +51,10 @@ $username = $is_logged_in ? $_SESSION['username'] : '';
                     <a href="http://localhost/projet/login/login.php" class="btn signin">Sign in</a>
                     <a href="http://localhost/projet/signup/signup.php" class="btn signup">Sign up</a>
                 <?php endif; ?>
+=======
+                <a href="login/login.php" class="btn signin">Sign in</a>
+                <a href="singup/singnup.php" class="btn signup">Sign up</a>
+>>>>>>> 2dc24a33f7d8d4627b7b5dc6305b3dbf35093624
             </div>
         </div>
     </header>

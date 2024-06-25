@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
     color: white;
+    overflow: hidden;
 }
 
 .container {
@@ -15,17 +16,24 @@ body {
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 .welcome-section {
     flex: 1;
     text-align: left;
     padding: 20px;
+    position: absolute;
+    left: -100px;
 }
 
 .welcome-section h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 4.5rem;
+    margin-bottom: 0;
+    line-height: 1.1;
 }
 
 .welcome-section p {
@@ -33,7 +41,7 @@ body {
     line-height: 1.5;
 }
 
-.login-section {
+.singup-section {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -41,31 +49,35 @@ body {
     position: relative;
 }
 
-.login-form {
-    background: rgba(0, 0, 0, 0.8);
+.singup-form {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 10px;
     width: 100%;
     max-width: 400px;
     text-align: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Ajout de l'ombre */
 }
 
-.login-form h2 {
+.singup-form h2 {
     margin-bottom: 10px;
 }
 
-.login-form p {
+.singup-form p {
     margin-bottom: 20px;
 }
 
-.login-form label {
+.singup-form label {
     display: block;
     margin: 10px 0 5px;
 }
 
-.login-form input[type="text"],
-.login-form input[type="email"],
-.login-form input[type="password"] {
+.singup-form input[type="text"],
+.singup-form input[type="email"],
+.singup-form input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -74,17 +86,17 @@ body {
     box-sizing: border-box;
 }
 
-.remember-me {
+.signup-remember-me {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.remember-me input {
+.signup-remember-me input {
     margin-right: 10px;
 }
 
-.login-form button {
+.singup-form button {
     background: #6200ea;
     color: white;
     padding: 10px;
@@ -95,23 +107,96 @@ body {
     font-size: 1rem;
 }
 
-.login-form button:hover {
+.singup-form button:hover {
     background: #3700b3;
 }
 
-.login-form a {
+.singup-form a {
     color: #6200ea;
     display: block;
     margin: 10px 0;
 }
 
-.footer-links {
+.signup-footer-links {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
 }
 
-.footer-links a {
+.signup-footer-links a {
     color: #6200ea;
+}
+
+.signup-earth-image {
+    position: absolute;
+    right: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 700px;
+    height: auto;
+    z-index: 0;
+}
+
+@media (max-width: 1024px) {
+    .signup-earth-image {
+        right: -100px;
+        width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome-section {
+        position: relative;
+        text-align: center;
+        left: 0;
+        margin-bottom: 20px;
+    }
+
+    .welcome-section h1 {
+        font-size: 3rem;
+    }
+
+    .welcome-section p {
+        font-size: 1rem;
+    }
+
+    .singup-section {
+        position: relative;
+    }
+
+    .singup-form {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .signup-earth-image {
+        right: -50px;
+        width: 300px;
+        top: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome-section p {
+        font-size: 0.9rem;
+    }
+
+    .singup-form {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .signup-earth-image {
+        display: none; /* Hide the earth image on very small screens */
+    }
 }
