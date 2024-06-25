@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($password, $user['Password'])) {
         $_SESSION['user_id'] = $user['User_ID'];
         $_SESSION['username'] = $user['Username'];
+        $_SESSION['Role'] = $user['Role']; // Ajoutez cette ligne pour définir le rôle
 
         // Redirection après connexion réussie
         header('Location: ../index.php'); // Remplacez par la page de destination après connexion
