@@ -39,3 +39,12 @@ function displayNews(newsItems) {
 }
 
 fetchNews();
+
+function toggleNewConversation() {
+    var newConversation = document.querySelector('.new-conversation');
+    if (newConversation.style.display === 'none' || newConversation.style.display === '') {
+        newConversation.style.display = 'block';
+    } else {
+        newConversation.style.display = 'none';
+    }
+}

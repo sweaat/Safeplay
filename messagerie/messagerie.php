@@ -3,7 +3,7 @@ session_start();
 
 // Vérifiez si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: ../login/login.php"); // Rediriger vers la page de connexion
     exit;
 }
 
@@ -62,23 +62,15 @@ if ($receiverId) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messages</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/Safeplay/messagerie/style.css">
+    <link rel="stylesheet" href="/Safeplay/style.css"> <!-- Inclusion du CSS global si nécessaire -->
 </head>
 <body>
-<header>
-    <div class="logo">SafePlay</div>
-    <nav>
-        <a href="#">Accueil</a>
-        <a href="#">Actualités</a>
-        <a href="#">Forums</a>
-        <a href="#">Messages</a>
-        <a href="#">Support</a>
-        <a href="/singup/singnup.php">Sign Out</a>
-    </nav>
-</header>
+<?php include '../header.php'; ?>
 <main>
     <div class="messaging-container">
         <section class="conversations">
+            <button class="toggle-button" onclick="toggleNewConversation()">Start New Conversation</button>
             <h1>Conversations</h1>
             <ul>
                 <?php foreach ($conversations as $conversation): ?>
@@ -89,41 +81,55 @@ if ($receiverId) {
 
         <section class="chat">
             <div class="chat-header">
-                <h1>Start New Conversation</h1>
-                <form action="" method="post">
-                    <select name="receiver_id" required>
-                        <option value="" disabled selected>Select a user</option>
-                        <?php foreach ($users as $user): ?>
-                            <option value="<?= $user['User_ID'] ?>"><?= htmlspecialchars($user['Username']) ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                    <textarea name="content" placeholder="Type your message here..." required></textarea>
+                <h1>Messages</h1>
+            </div>
+            <div class="chat-messages">
+                <ul>
+                    <?php foreach ($messages as $message): ?>
+                        <li class="<?= $message['Sender_ID'] == $userId ? 'sent' : 'received' ?>">
+                            <div class="message"><?= htmlspecialchars($message['Content']) ?></div>
+                            <span class="timestamp"><?= htmlspecialchars($message['Send_Date']) ?></span>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <form action="" method="post" class="message-form">
+                    <input type="hidden" name="receiver_id" value="<?= $receiverId ?>">
+                    <label>
+                        <textarea name="content" placeholder="Type your message here..." required></textarea>
+                    </label>
                     <button type="submit">Send</button>
                 </form>
             </div>
-
-            <?php if ($receiverId): ?>
-                <div class="chat-messages">
-                    <h1>Messages</h1>
-                    <ul>
-                        <?php foreach ($messages as $message): ?>
-                            <li class="<?= $message['Sender_ID'] == $userId ? 'sent' : 'received' ?>">
-                                <span class="content"><?= htmlspecialchars($message['Content']) ?></span>
-                                <span class="timestamp"><?= htmlspecialchars($message['Send_Date']) ?></span>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                    <form action="" method="post" class="message-form">
-                        <input type="hidden" name="receiver_id" value="<?= $receiverId ?>">
-                        <label>
-                            <textarea name="content" placeholder="Type your message here..." required></textarea>
-                        </label>
-                        <button type="submit">Send</button>
-                    </form>
-                </div>
-            <?php endif; ?>
         </section>
     </div>
+
+    <div class="new-conversation">
+        <div class="chat-header">
+            <h1>Start New Conversation</h1>
+            <form action="" method="post">
+                <select name="receiver_id" required>
+                    <option value="" disabled selected>Select a user</option>
+                    <?php foreach ($users as $user): ?>
+                        <option value="<?= $user['User_ID'] ?>"><?= htmlspecialchars($user['Username']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <textarea name="content" placeholder="Type your message here..." required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
 </main>
+
+<script>
+    function toggleNewConversation() {
+        var newConversation = document.querySelector('.new-conversation');
+        if (newConversation.style.display === 'none' || newConversation.style.display === '') {
+            newConversation.style.display = 'block';
+        } else {
+            newConversation.style.display = 'none';
+        }
+    }
+</script>
+
 </body>
 </html>
