@@ -1,0 +1,46 @@
+Users:
+
+GET: http://votre_domaine/users
+GET: http://votre_domaine/users/{id}
+POST: http://votre_domaine/users avec un corps JSON { "Username": "user", "Email": "user@example.com", "Password": "password", "Role": "User" }
+PUT: http://votre_domaine/users/{id} avec un corps JSON similaire à POST
+DELETE: http://votre_domaine/users/{id}
+
+
+
+Games:
+
+GET: http://votre_domaine/games
+GET: http://votre_domaine/games/{id}
+POST: http://votre_domaine/games avec un corps JSON { "Title": "game", "Genre": "genre", "Release_Date": "2024-01-01", "Developer": "dev" }
+PUT: http://votre_domaine/games/{id} avec un corps JSON similaire à POST
+DELETE: http://votre_domaine/games/{id}
+
+
+
+Forums:
+
+GET: http://votre_domaine/forums
+GET: http://votre_domaine/forums/{id}
+POST: http://votre_domaine/forums avec un corps JSON { "Title": "forum", "Description": "description" }
+PUT: http://votre_domaine/forums/{id} avec un corps JSON similaire à POST
+DELETE: http://votre_domaine/forums/{id}
+
+
+
+ForumPosts:
+
+GET: http://votre_domaine/forumposts
+GET: http://votre_domaine/forumposts/{id}
+POST: http://votre_domaine/forumposts avec un corps JSON { "Forum_ID": 1, "Post_ID": 1 }
+PUT: http://votre_domaine/forumposts/{id} avec un corps JSON similaire à POST
+DELETE: http://votre_domaine/forumposts/{id}
+
+
+Messages:
+
+GET: http://votre_domaine/messages
+GET: http://votre_domaine/messages/{id}
+POST: http://votre_domaine/messages avec un corps JSON { "Sender_ID": 1, "Receiver_ID": 2, "Content": "Hello!" }
+PUT: http://votre_domaine/messages/{id} avec un corps JSON similaire à POST
+DELETE: http://votre_domaine/messages/{id}

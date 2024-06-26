@@ -1,66 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: radial-gradient(circle at right, #003b57, #000);
+    background: #000; /* Noir en arrière-plan */
+    overflow: hidden;
     color: white;
-    text-align: center;
-    overflow-x: hidden;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Désactiver le défilement vertical */
+    justify-content: center;
     height: 100vh;
 }
 
 header {
-<<<<<<< HEAD
     background: #000; /* Couleur de fond noire */
     color: white;
     padding: 10px 20px;
-=======
-    font-family: 'Oswald', sans-serif;
->>>>>>> 2dc24a33f7d8d4627b7b5dc6305b3dbf35093624
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
-<<<<<<< HEAD
-=======
-    height: 70px;
-    background: #111111;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px; /* Augmentez la valeur pour écarter plus */
->>>>>>> 2dc24a33f7d8d4627b7b5dc6305b3dbf35093624
-    z-index: 1000;
 }
-
-header .logo {
-    font-size: 24px;
-    font-weight: 700;
-}
-
-header nav {
-    display: flex;
-    gap: 40px; /* Augmentez la valeur pour écarter plus */
-}
-
-header nav a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-header nav a:hover {
-    color: #ddd;
-}
-
 
 .container {
     display: flex;
@@ -188,13 +146,4 @@ main {
 .social-icon.twitter::before {
     content: '🐦';
     margin-right: 8px;
-}
-.username {
-    color: #ffffff; 
-    text-decoration: none;
-    margin-right: 10px; 
-}
-
-.username:hover {
-    text-decoration: underline;
 }
