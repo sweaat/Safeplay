@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <div class="container">
     <div class="welcome-section">
-        <h1>BIENVENUE <br> SUR NOTRE <br> PLATFORM</h1>
+        <h1>BIENVENUE <br> SUR NOTRE <br> PLATFORME</h1>
         <p>Veuillez remplir les informations <br> ci-dessous pour créer votre compte.<br>
             Si vous avez déjà un compte, <br> vous pouvez vous connecter <a href="login.php">ici</a>.</p>
     </div>

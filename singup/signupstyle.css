@@ -1,8 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-position: bottom left;
-    background: linear-gradient(90deg, #3DC85C 0%, #2FA16D 35%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle at bottom left, #3DC85C 0%, #2FA16D 20%, #000000 40%);
     display: flex;
     justify-content: center;
     align-items: center;

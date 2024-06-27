@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,14 +20,19 @@
             <ul>
                 <li><a href="/Safeplay/index.php">Accueil</a></li>
                 <li><a href="/Safeplay/actu/actu.php">Decouvrir un jeux</a></li>
-                <li><a href="#">Forums</a></li>
-                <a href="/Safeplay/messagerie/messagerie.php">Messages</a>
+                <li><a href="/Safeplay/forum/forum.php">Forums</a></li>
+                <li><a href="/Safeplay/messagerie/messagerie.php">Messages</a></li>
                 <li><a href="#">Support</a></li>
             </ul>
         </nav>
         <div class="auth-buttons">
-            <a href="/Safeplay/login/login.php" class="btn signin">Sign in</a>
-            <a href="/Safeplay/singup/singnup.php" class="btn signup">Sign Out</a>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <span class="username"><?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                <a href="/Safeplay/logout.php" class="btn logout">Déconnexion</a>
+            <?php else: ?>
+                <a href="/Safeplay/login/login.php" class="btn signin">Sign in</a>
+                <a href="/Safeplay/singup/singnup.php" class="btn signup">Sign Out</a>
+            <?php endif; ?>
         </div>
     </div>
 </header>
