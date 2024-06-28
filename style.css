@@ -12,12 +12,28 @@ body {
 }
 
 header {
+<<<<<<< HEAD
     background: #000; /* Couleur de fond noire */
     color: white;
     padding: 10px 20px;
     position: absolute;
+=======
+    font-family: 'Oswald', sans-serif;
+    position: fixed;
+>>>>>>> 313989781f1038c5bb38bb235f2d5e9615031b32
     top: 0;
     width: 100%;
+<<<<<<< HEAD
+=======
+    height: 70px;
+    background: #111111;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px; /* Augmentez la valeur pour écarter plus */
+    z-index: 1000;
+>>>>>>> 313989781f1038c5bb38bb235f2d5e9615031b32
 }
 
 .container {

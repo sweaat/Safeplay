@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<<<<<<< HEAD
     <header>
         <div class="container">
             <div class="logo">
@@ -27,3 +28,27 @@
             </div>
         </div>
     </header>
+=======
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="/Safeplay/index.php">safeplay</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/Safeplay/index.php">Accueil</a></li>
+                <li><a href="/Safeplay/actu/actu.php">Decouvrir un jeux</a></li>
+                <li><a href="#">Forums</a></li>
+                <a href="/Safeplay/messagerie/messagerie.php">Messages</a>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="/Safeplay/login/login.php" class="btn signin">Sign in</a>
+            <a href="/Safeplay/singup/singnup.php" class="btn signup">Sign Out</a>
+        </div>
+    </div>
+</header>
+</body>
+</html>
+>>>>>>> 313989781f1038c5bb38bb235f2d5e9615031b32

@@ -1,4 +1,3 @@
-<?php include '../header.php';?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualités des jeux vidéo - Safeplay</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/Safeplay/style.css">
 </head>
 <body>
+<?php include '../header.php';?>
     <h1>Envie de découvrir un jeux ?</h1>
     <main>
         <div class="image-container">
