@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Accueil.dart'; // Importez la page d'accueil
 import 'login_page.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -14,6 +16,38 @@ class _SignupPageState extends State<SignupPage> {
 
   // Ajoutez une variable booléenne pour maintenir l'état de la case à cocher
   bool _rememberMe = false;
+
+  Future<void> _signup() async {
+    var url = Uri.parse('http://10.0.2.2/projet/apiprojet/controller/createuser');
+    var headers = {
+      'Content-Type': 'application/json',
+    };
+    var body = jsonEncode({
+      'Username': _usernameController.text,
+      'Email': _emailController.text,
+      'Password': _passwordController.text,
+    });
+
+    print('Sending POST request to $url with body: $body');
+
+    try {
+      var response = await http.post(url, headers: headers, body: body);
+
+      if (response.statusCode == 200) {
+        print('User created successfully');
+        // Navigate to the home page or login page
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginPage()),
+        );
+      } else {
+        print('Failed to create user. Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -159,9 +193,7 @@ class _SignupPageState extends State<SignupPage> {
               borderRadius: BorderRadius.circular(5),
             ),
             child: ElevatedButton(
-              onPressed: () {
-                // Handle login action
-              },
+              onPressed: _signup,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.transparent,
                 shadowColor: Colors.transparent,
@@ -169,7 +201,7 @@ class _SignupPageState extends State<SignupPage> {
                 textStyle: const TextStyle(fontFamily: 'NotoSans-SemiBold'),
               ),
               child: const Text(
-                'Login',
+                'Signup',
                 style: TextStyle(color: Colors.white),
               ),
             ),

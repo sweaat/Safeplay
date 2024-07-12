@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'create_account_page.dart';
 import 'decouvrir_jeux.dart'; // Import the DiscoverGamesPage
+import 'edit_profile.dart'; // Import the EditProfilePage
+import 'admin_page.dart'; // Import the AdminPage
 import 'forum.dart'; // Import the ForumPage
+import 'support.dart'; // Import the SupportPage
 
 void main() {
   runApp(SafeplayApp());
@@ -13,18 +16,18 @@ class SafeplayApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SafeplayHomePage(),
+      home: SafeplayHomePage(), // No default username and isAdmin for testing
     );
   }
 }
 
 class SafeplayHomePage extends StatelessWidget {
   final String? username;
+  final bool isAdmin; // Add isAdmin flag
 
-  SafeplayHomePage({this.username});
+  SafeplayHomePage({this.username, this.isAdmin = false});
 
   void _onMenuItemSelected(BuildContext context, String value) {
-    // Handle the menu item selection
     switch (value) {
       case 'Découvrir un jeu':
         Navigator.push(
@@ -35,14 +38,23 @@ class SafeplayHomePage extends StatelessWidget {
       case 'Forum':
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ForumPage()), // Navigate to ForumPage
+          MaterialPageRoute(builder: (context) => ForumPage(username: username)), // Navigate to ForumPage
         );
         break;
       case 'Messagerie':
       // Navigate to Messagerie
         break;
       case 'Support':
-      // Navigate to Support
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SupportPage()),
+        );
+        break;
+      case 'Admin':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => AdminPage()), // Navigate to AdminPage
+        );
         break;
     }
   }
@@ -51,6 +63,13 @@ class SafeplayHomePage extends StatelessWidget {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => LoginPage()),
+    );
+  }
+
+  void _editProfile(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => EditProfilePage(userId: 1)), // Pass a default userId
     );
   }
 
@@ -95,11 +114,14 @@ class SafeplayHomePage extends StatelessWidget {
                 if (username != null)
                   Column(
                     children: [
-                      Text(
-                        'Bienvenue, $username!',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
+                      GestureDetector(
+                        onTap: () => _editProfile(context), // Navigate to EditProfilePage on click
+                        child: Text(
+                          'Bienvenue, $username!',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -249,6 +271,11 @@ class SafeplayHomePage extends StatelessWidget {
                     value: 'Support',
                     child: Text('Support'),
                   ),
+                  if (isAdmin)
+                    const PopupMenuItem<String>(
+                      value: 'Admin',
+                      child: Text('Admin'),
+                    ),
                 ];
               },
             ),

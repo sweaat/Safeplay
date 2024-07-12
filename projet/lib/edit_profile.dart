@@ -16,48 +16,28 @@ class _EditProfilePageState extends State<EditProfilePage> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    _fetchUserDetails();
-  }
-
-  Future<void> _fetchUserDetails() async {
-    var url = Uri.parse('http://10.0.2.2/projet/apiprojet/controller/users?id=${widget.userId}');
-    try {
-      var response = await http.get(url, headers: {
-        'Content-Type': 'application/json',
-      });
-
-      if (response.statusCode == 200) {
-        var data = jsonDecode(response.body);
-        setState(() {
-          emailController.text = data['Email'];
-          usernameController.text = data['Username'];
-        });
-      } else {
-        print('Failed to load user details');
-      }
-    } catch (e) {
-      print('Error: $e');
-    }
-  }
-
   Future<void> _updateUserProfile() async {
     var url = Uri.parse('http://10.0.2.2/projet/apiprojet/controller/users?id=${widget.userId}');
+    var headers = {
+      'Content-Type': 'application/json',
+    };
+    var body = jsonEncode({
+      'Username': usernameController.text,
+      'Email': emailController.text,
+      'Password': passwordController.text,
+    });
+
+    print('Sending PUT request to $url with body: $body');
+
     try {
-      var response = await http.put(url, body: jsonEncode({
-        'Username': usernameController.text,
-        'Email': emailController.text,
-        'Password': passwordController.text,
-      }), headers: {
-        'Content-Type': 'application/json',
-      });
+      var response = await http.put(url, headers: headers, body: body);
 
       if (response.statusCode == 200) {
         print('User profile updated successfully');
+        print('Response body: ${response.body}');
       } else {
-        print('Failed to update user profile');
+        print('Failed to update user profile. Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
       }
     } catch (e) {
       print('Error: $e');
